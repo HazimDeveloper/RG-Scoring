@@ -21,6 +21,13 @@ public class Event {
         this.eventName = eventName;
         this.eventYear = eventYear;
     }
+    
+    
+    public Event(int eventID, String eventName, String eventYear) {
+        this.eventID = eventID;
+        this.eventName = eventName;
+        this.eventYear = eventYear;
+    }
 
     public int getGymnastID() {
         return gymnastID;

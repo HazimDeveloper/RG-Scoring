@@ -98,8 +98,8 @@ public class gymnastDAO extends QueryDBGymnast{
           List <Gymnast> gyms = new ArrayList<>();
           
           try(Connection con = db.getConnection();
-                  PreparedStatement pst = con.prepareStatement("listGymnast")){
-              ResultSet rs =pst.executeQuery();
+                  PreparedStatement pst = con.prepareStatement(listGymnast())){
+              ResultSet rs = pst.executeQuery();
               
               while(rs.next()){
                   int id = rs.getInt("gymnastID");

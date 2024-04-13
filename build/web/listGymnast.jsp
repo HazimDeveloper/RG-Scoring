@@ -17,7 +17,6 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>List Gymnast</title>
  
-      <jsp:include page="assets/css.jsp" /> 
 </head>
 
 <body>
@@ -115,8 +114,8 @@
                                                 <th><img src="assest/img/"<c:out value="${gym.profilePicture}" />></th>
                                                 <th><c:out value="${gym.gymnastName}" /></th>
                                                 <th><c:out value="${gym.gymnastState}" /></th>
-                                                <th><c:out value="${gym.gymnastCategory}" /></th>
-                                                <th><c:out value="${gym.gymnastProgram}" /></th>
+                                                <th><c:out value="${gym.category}" /></th>
+                                                <th><c:out value="${gym.program}" /></th>
                                             </tr>+
                                         </c:forEach>
                                         </tbody>
@@ -158,7 +157,6 @@
     <!--**********************************
         Scripts
     ***********************************-->
-   <jsp:include page="assets/js.jsp" /> 
 </body>
 
 </html>

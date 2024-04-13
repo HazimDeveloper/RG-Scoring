@@ -27,7 +27,7 @@
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo mr-5" href="index.html"><img src="../images/logo.png" class="mr-2" alt="logo"/></a>
+        <a class="navbar-brand brand-logo mr-5" href="index.html">Gymnast</a>
         <a class="navbar-brand brand-logo-mini" href="index.html"><img src="images/logo-mini.svg" alt="logo"/></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
@@ -41,7 +41,7 @@
           <!-- Logout -->
           <li class="nav-item nav-profile dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-              Hello Manager
+              Hello Gymnastic Lover
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
               <a class="dropdown-item">
@@ -64,87 +64,33 @@
     
 
 
+
     <!-- start sidebar -->
-    <div class="container-fluid page-body-wrapper w-100">
+    <div class="main-panel mt-5 container-fluid mb-0 w-100">
  
-      <!-- partial -->
-      <!-- partial:partials/_sidebar.html -->
-      <nav class="sidebar sidebar-offcanvas" id="sidebar">
-        <ul class="nav">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">
-              <span class="mdi mdi-view-dashboard"></span>
-              <span class="menu-title">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dashboard</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#ui-basic"  aria-expanded="false" aria-controls="ui-basic">
-              
-<span class="mdi mdi-gymnastics"></span>
-              <span class="menu-title">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gymnast</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="ui-basic">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Add Gymnast</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
-              <span class="mdi mdi-calendar-multiple"></span>
-              <span class="menu-title">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Event</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="form-elements">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Add Event</a></li>
-              </ul>
-            </div>
-          </li>
-   
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
-              <span class="mdi mdi-account-outline"></span>
-              <span class="menu-title">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;User Pages</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="auth">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Register </a></li>
-              </ul>
-            </div>
-          </li>
-   
-        </ul>
-      </nav>
-
-      <!-- End Sidebar -->
 
       <!-- partial -->
-      <div class="main-panel">
-        <div class="content-wrapper">
+        <div class="content-wrapper ">
           <div class="row">
-            <div class="col-md-12 grid-margin">
+            <div class="col-md-12 grid-margin ">
               <div class="row">
                 <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                  <h3 class="font-weight-bold">Welcome Manager</h3>
+                  <h3 class="font-weight-bold">Welcome To  Gymnastic Perfomance</h3>
                   <h6 class="font-weight-normal mb-0">All systems are running smoothly! </h6>
                 </div>
               </div>
             </div>
           </div>
           
-          <div class="row">
+          <div class="row ">
             <div class="col-md-12 grid-margin stretch-card">
               <div class="card">
-                <div class="card-body">
+                <div class="card-body ">
                   <p class="card-title">MSSM 2014</p>
                   <div class="row">
                     <div class="col-12">
                       <div class="table-responsive">
-                        <table id="" class="table" >
+                         <table id="" class="table" >
                           <thead>
                             <tr>
                               <th></th>
@@ -158,6 +104,7 @@
                             </tr>
                             <tr>
                               <th>Place</th>
+                              <th>Name</th>
                               <th>State</th>
                               <th>Year</th>
                               <th class="border-left 1px">D</th>
@@ -177,6 +124,7 @@
                           <tbody>
                             <tr>
                               <td>1</td>
+                              <td><a href="perfomanceGymnast.jsp" >Hazim</a></td>
                               <td>Terengganu</td>
                               <td>2019</td>
                               <td>10</td>
@@ -213,8 +161,6 @@
           </div>
         </footer> 
         <!-- partial -->
-      </div>
-      <!-- main-panel ends -->
     </div>   
     <!-- page-body-wrapper ends -->
   </div>

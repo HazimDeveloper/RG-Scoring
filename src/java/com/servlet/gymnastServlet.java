@@ -181,13 +181,15 @@ if (gymnastDetail.isEmpty() || gymnastDetail.size() <= id) {
          request.setAttribute("gymnastDetail",gymnastDetail);
          RequestDispatcher dispatcher = request.getRequestDispatcher("listGymnast.jsp");
          dispatcher.forward(request,response);
+         
+         System.out.println(gymnastDetail);
     }
     
     private void allGymnastByID(HttpServletRequest request,HttpServletResponse response)throws ServletException,IOException{
              int id = Integer.parseInt(request.getParameter("gymnastID"));
         List<Gymnast> gymnastDetail = gymnastDAO.GymnastByID(id);
          
-         request.setAttribute("gymnastDetail",gymnastDetail);
+         request.setAttribute("gymnastDetailByID",gymnastDetail);
          
         
          RequestDispatcher dispatcher = request.getRequestDispatcher("listGymnastByID.jsp");

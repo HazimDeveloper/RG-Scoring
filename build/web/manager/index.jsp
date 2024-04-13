@@ -64,9 +64,8 @@
     
 
 
-
     <!-- start sidebar -->
-    <div class="container-fluid page-body-wrapper">
+    <div class="container-fluid page-body-wrapper w-100">
  
       <!-- partial -->
       <!-- partial:partials/_sidebar.html -->
@@ -152,8 +151,8 @@
                               <th></th>
                               <th></th>
 
-                              <th  class="text-center border 1px" colspan="3"><img width="40px" height="40px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGqySi-J7uDBTwm_dGFWfoArtyDnt2VK_1zQ&s"></th>
-                              <th class="text-center border 1px" colspan="3"><img width="40px" height="40px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGqySi-J7uDBTwm_dGFWfoArtyDnt2VK_1zQ&s"></th>
+                              <th  class="text-center border 1px" colspan="4"><img width="40px" height="40px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGqySi-J7uDBTwm_dGFWfoArtyDnt2VK_1zQ&s"></th>
+                              <th class="text-center border 1px" colspan="4"><img width="40px" height="40px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGqySi-J7uDBTwm_dGFWfoArtyDnt2VK_1zQ&s"></th>
 
                               <th></th>
                             </tr>
@@ -163,11 +162,16 @@
                               <th>Year</th>
                               <th class="border-left 1px">D</th>
                               <th >E</th>
+                              <th >A</th>
                               <th class="border-right 1px">Ded.</th>
                               <th class="border-left 1px">D</th>
                               <th >E</th>
+                              <th >A</th>
                               <th class="border-right 1px"> Ded.</th>
+                              
+                              <th >D + A + E</th>
                               <th >Score.</th>
+                              <th>Qualified P3</th>
                             </tr>
                           </thead>
                           <tbody>
@@ -177,11 +181,15 @@
                               <td>2019</td>
                               <td>10</td>
                               <td>21</td>
+                              <td>23.0</td>
                               <td>3</td>
                               <td>10</td>
                               <td>21</td>
                               <td>3</td>
+                              <td>12.22</td>
+                              <td>40.6</td>
                               <td>60</td>
+                              <td>Q1</td>
                             </tr>
                           </tbody>
                       </table>
