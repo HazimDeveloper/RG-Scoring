@@ -16,4 +16,5 @@ public abstract class QueryDBEvent {
     public abstract String listEventByID();
     public abstract String insertEvent();
     public abstract String updateEvent();
+     public abstract String deleteEvent();
 }

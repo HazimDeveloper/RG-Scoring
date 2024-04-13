@@ -36,10 +36,10 @@ public void init(){
         
         switch(action){
             case "/insertScore" : 
-                insertPost(request,response);
+                insertScore(request,response);
             break ;   
             case "/handleScore" :
-                getAllEvent(request,response);
+                getAllScore(request,response);
                 break;
         }
     }
@@ -50,7 +50,7 @@ public void init(){
         doGet(request,response);
     }
     
-    public void insertPost(HttpServletRequest request,HttpServletResponse response) throws ServletException{
+    public void insertScore(HttpServletRequest request,HttpServletResponse response) throws ServletException{
         
         //insert score
         
@@ -60,7 +60,7 @@ public void init(){
         double deductPoint = Double.parseDouble(request.getParameter("deductionPoint"));
         
         Score score = new Score(scoreD,scoreA,scoreE,deductPoint);
-        
+         
         
         //insert event
         String eventName = request.getParameter("eventName");
@@ -70,16 +70,17 @@ public void init(){
         
         //int eventID, int scoreID, int userID,int gymnastID, String eventName, String eventYear
         Event event = new Event(0,score.getScoreID(),userID,gymnastID,eventName,eventYear);
-            
+         
     }
     
-    public void getAllEvent(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException{
+    public void getAllScore(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException{
         List <Event> event = eventdao.listAllDataEvent();
         request.setAttribute("allDataEvent", event);
         RequestDispatcher dispatcher = request.getRequestDispatcher("judge/handleScoreGymnast.jsp");
         dispatcher.forward(request, response);
         
     }
+    
 
 
 }

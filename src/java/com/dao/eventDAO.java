@@ -34,6 +34,10 @@ public class eventDAO extends QueryDBEvent{
         return "update event set eventName = ? , eventYear = ? , scoreID = ?,gymnastID = ? , userID = ? where eventID = ?";
     }
     
+    public String deleteEvent(){
+          return "delete from event where eventID = ?";
+    }
+    
     public List < Event > listAllDataEvent(){
       List <Event> event = new ArrayList <>();
         try(Connection con = db.getConnection();
@@ -134,6 +138,20 @@ public class eventDAO extends QueryDBEvent{
            }catch(SQLException e){
            printSQLException(e);
            }
+       }
+       
+       public boolean deleteDataEvent(int eventID){
+             boolean rowDeleted = false;
+          
+          try(Connection con = db.getConnection();
+                  PreparedStatement pst = con.prepareStatement(deleteEvent())){
+              
+              pst.setInt(1, eventID);
+              rowDeleted = pst.executeUpdate() > 0;
+          }catch(SQLException e){
+              printSQLException(e);
+          }
+          return rowDeleted;
        }
     
       private void printSQLException(SQLException ex){

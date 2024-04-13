@@ -20,7 +20,7 @@ import jakarta.servlet.http.HttpSession;
  *
  * @author USER
  */
-@WebServlet(name = "userServlet", urlPatterns = {"/userServlet","/login"})
+@WebServlet(name = "userServlet", urlPatterns = {"/login"})
 public class userServlet extends HttpServlet {
 private userDAO userdao;
     
@@ -35,6 +35,10 @@ private userDAO userdao;
         String action = request.getServletPath();
         
         switch(action){
+            case "/index" : 
+                RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+                  dispatcher.forward(request,response);
+                break;
             case "/login" :
                 loginUser(request,response);
                 break;
@@ -52,25 +56,38 @@ private userDAO userdao;
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         
-        User user = new User(username,password);
         
+      
+        User user = new User(username,password);
+         if(user.getUsername().equals("admin") && user.getPassword().equals("admin123")){
+           request.getRequestDispatcher("admin/index.jsp").include(request, response);
+           return;
+    }
        
        User newUser = userdao.getUserDetailByUsername(user);
        
         HttpSession session = request.getSession();
         
-        System.out.println(newUser.getUserType());
-         if(username == "" && password == ""){
-        request.setAttribute("Err", "repeat");
+        if(newUser == null){
+               request.setAttribute("Err", "notMatch");
         request.getRequestDispatcher("login.jsp").include(request, response);
-    }else{
-        if(newUser.getUserType().equals("admin")){
+        return;
+        } 
+         if(user.getUsername().equals("") && user.getPassword().equals("")){
+        request.setAttribute("Err", "null");
+        request.getRequestDispatcher("login.jsp").include(request, response);
+    }else if(username.trim().length() == 0 && password.trim().length()==0){
+         request.setAttribute("Err", "notValid");
+        request.getRequestDispatcher("login.jsp").include(request, response);
+    } else{
+        
+        if(newUser.getUserType().equals("manager")){
             session.setAttribute("userID", user.getUserID());
-           request.getRequestDispatcher("admin/index.jsp").include(request, response);
-        }else{
+           request.getRequestDispatcher("manager/index.jsp").include(request, response);
+        }else if(newUser.getUserType().equals("judge")){
               session.setAttribute("userID", newUser.getUserID());
                 request.getRequestDispatcher("judge/handleScoreGymnast.jsp").include(request, response);
-        } 
+        }
         }
         
     }

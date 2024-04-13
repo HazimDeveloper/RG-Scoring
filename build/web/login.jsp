@@ -1,98 +1,84 @@
-<%-- 
-    Document   : login
-    Created on : 4 Apr 2024, 1:50:29 pm
-    Author     : USER
---%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-
-
 <!DOCTYPE html>
-<html class="h-100" lang="en">
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Quixlab - Bootstrap Admin Dashboard Template by Themefisher.com</title>
- 
-    <jsp:include page="assets/css-login.jsp" />
-    
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Skydash Admin</title>
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="http://127.0.0.1:5500/vendors/feather/feather.css">
+  <link rel="stylesheet" href="http://127.0.0.1:5500/vendors/ti-icons/css/themify-icons.css">
+  <link rel="stylesheet" href="http://127.0.0.1:5500/vendors/css/vendor.bundle.base.css">
+  <!-- endinject -->
+  <!-- Plugin css for this page -->
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="http://127.0.0.1:5500/css/vertical-layout-light/style.css">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="http://127.0.0.1:5500/images/favicon.png" />
 </head>
 
-<body class="h-100">
-    
-    <!--*******************
-        Preloader start
-    ********************-->
-    <div id="preloader">
-        <div class="loader">
-            <svg class="circular" viewBox="25 25 50 50">
-                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="3" stroke-miterlimit="10" />
-            </svg>
-        </div>
-    </div>
-    <!--*******************
-        Preloader end
-    ********************-->
-
-    
-
-
-
-    <div class="login-form-bg h-100">
-        <div class="container h-100">
-            <div class="row justify-content-center h-100">
-                <div class="col-xl-6">
-                    <div class="form-input-content">
-                        <div class="card login-form mb-0">
-                            <div class="card-body pt-5">
-                                <a class="text-center" href="index.html"> <h4>Login Panel</h4></a>
-        
-                                <form class="mt-5 mb-5 login-input" method="post" action="login">
-                                    <div class="form-group">
-                                        <input type="text" name="username" class="form-control" placeholder="Enter your Username " required>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="password" name="password" class="form-control" placeholder="Enter Your Password " required>
-                                    </div>
-                                    <button class="btn login-form__btn submit w-100" name="submit">Sign In</button>
-                                </form>
-                                <p class="mt-5 login-form__footer">Dont have account? <a href="page-register.html" class="text-primary">Sign Up</a> now</p>
-                            </div>
-                        </div>
-                    </div>
+<body>
+  <div class="container-scroller">
+    <div class="container-fluid page-body-wrapper full-page-wrapper">
+      <div class="content-wrapper d-flex align-items-center auth px-0">
+        <div class="row w-100 mx-0">
+          <div class="col-lg-4 mx-auto">
+            <div class="auth-form-light text-left py-5 px-4 px-sm-5">
+              <div class="brand-logo">
+                <img src="../images/logo.png" alt="logo">
+              </div>
+              <h4>Hello! let's get started</h4>
+              <h6 class="font-weight-light">Sign in to continue.</h6>
+              <form class="pt-3" action="login">
+                <div class="form-group">
+                    <input type="text" class="form-control form-control-lg" name="username" id="exampleInputUsername" placeholder="Username">
                 </div>
+                <div class="form-group">
+                    <input type="password" name="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password">
+                </div>
+                <div class="mt-3">
+                    <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" >SIGN IN </button>
+                </div>
+                <div class="my-2 d-flex justify-content-between align-items-center">
+              
+                  <a href="#" class="auth-link text-black">Forgot password?</a>
+                </div>
+                  
+                <div class="text-center mt-4 font-weight-light">
+                  Not Have Account? <a href="login.JSP" class="text-primary">Sign Up</a>
+                </div>
+              </form>
             </div>
+          </div>
         </div>
+      </div>
+      <!-- content-wrapper ends -->
     </div>
-    
-    <input type="hidden" id="status" value="<%= request.getAttribute("Err") %>">
-    
-
-    <!--**********************************
-        Scripts
-    ***********************************-->
-
-    
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script>
-        var status = document.getElementById("status");
-        
-        if(status == "repeat"){
-            
-            Swal.fire({
-  title: "Email or password do not match with our credential",
-  text: "Please try again!",
-  icon: "warning"
-});
-        }
-        
-        
-    </script>
-        <jsp:include page="assets/js-login.jsp" />
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+  <!-- plugins:js -->
+  <script src="http://127.0.0.1:5500/vendors/js/vendor.bundle.base.js"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page -->
+  <!-- End plugin js for this page -->
+  <!-- inject:js -->
+  <script src="http://127.0.0.1:5500/js/off-canvas.js"></script>
+  <script src="http://127.0.0.1:5500/js/hoverable-collapse.js"></script>
+  <script src="http://127.0.0.1:5500/js/template.js"></script>
+  <script src="http://127.0.0.1:5500/js/settings.js"></script>
+  <script src="http://127.0.0.1:5500/js/todolist.js"></script>
+  <!-- endinject -->
 </body>
+
 </html>
+
+</body>
+
+</html>
+
 
 
 
