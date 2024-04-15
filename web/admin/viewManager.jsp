@@ -1,3 +1,10 @@
+<%-- 
+    Document   : viewManager
+    Created on : 14 Apr 2024, 2:09:06 pm
+    Author     : USER
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +12,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Judge</title>
+  <title>Add Manager</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="http://127.0.0.1:5500/vendors/feather/feather.css">
   <link rel="stylesheet" href="http://127.0.0.1:5500/vendors/ti-icons/css/themify-icons.css">
@@ -20,7 +27,7 @@
   <link rel="stylesheet" href="http://127.0.0.1:5500/css/vertical-layout-light/style.css">
   <!-- endinject -->
   <link rel="shortcut icon" href="http://127.0.0.1:5500/images/favicon.png" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
   <link rel="stylesheet" href="http://127.0.0.1:5500/vendors/mdi/css/materialdesignicons.min.css">
 </head>
 <body>
@@ -40,14 +47,14 @@
         <ul class="navbar-nav navbar-nav-right">
           <li class="nav-item nav-profile dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-                <p>Welcome Judge</p>
+                <p>Welcome Admin</p>
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
               <a class="dropdown-item">
                 <i class="ti-settings text-primary"></i>
                 Settings
               </a>
-                <a class="dropdown-item" href="logout">
+              <a class="dropdown-item" href="logout">
                 <i class="ti-power-off text-primary"></i>
                 Logout
               </a>
@@ -216,17 +223,23 @@
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#ui-basic3" aria-expanded="false" aria-controls="ui-basic">
-              <i class="fa-solid fa-person-walking"></i></i> &nbsp;
-              <span class="menu-title">Handle Score</span>
-              <!-- <i class="menu-arrow"></i> -->
+            <a class="nav-link" href="dashboard">
+              <i class="icon-grid menu-icon"></i>
+              <span class="menu-title">Dashboard</span>
             </a>
-            <!-- <div class="collapse" id="ui-basic3">
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+              <i class="icon-head menu-icon"></i>
+              <span class="menu-title">Manager</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="viewgymnast.html">View</a></li>
-                <li class="nav-item"> <a class="nav-link" href="addgymnast.html">Add</a></li>
+                <li class="nav-item"> <a class="nav-link" href="viewManager">View</a></li>
+                <li class="nav-item"> <a class="nav-link" href="addManager">Add</a></li>
               </ul>
-            </div> -->
+            </div>
           </li>
         </ul>
       </nav>
@@ -240,59 +253,54 @@
                     <div class="col-lg-12 grid-margin stretch-card">
                         <div class="card">
                           <div class="card-body">
-                            <h4 class="card-title">Event List</h4>
+                            <h4 class="card-title">Manager List</h4>
                             <div class="table-responsive">
-                                <form class="" >
-                                <select name="" class="form-control">
-                                    <option>Event Name</option>
-                                    <option>MSSM 2024</option>
-                                    <option>MSSM 2012</option>
-                                </select>
-                                <select name="" class="form-control">
-                                    <option>Gymnast Name</option>
-                                    
-                                    <option>Li Zxuan Ying</option>
-                                
-                                    <option>Fatimah Abd Ghani</option>
-                                </select>
                               <table class="table table-striped">
                                 <thead>
                                   <tr>
                                     <th>
-                                      Score D
+                                      Name
                                     </th>
                                     <th>
-                                      Score E
+                                      Event Handled
                                     </th>
-                                    <th>
-                                      Score A
-                                    </th>
-                                    <th>
-                                      Deduction Point
+                                    <th colspan="2">
+                                      Action
                                     </th>
                                   </tr>
                                 </thead>
                                 <tbody>
                                   <tr>
                                     <td>
-                                        <input type="number" class="form-control" name="scoreD">
+                                        Muhammad Muhammad
                                     </td>
                                     <td>
-                                        <input type="number" class="form-control" name="scoreE">
+                                        Kejohanan Gymnastik 2024
                                     </td>
                                     <td>
-                                        <input type="number" class="form-control" name="scoreA">
+                                      <a class="btn-sm btn btn-warning"><i class="mdi mdi-pencil"></i></a>
                                     </td>
                                     <td>
-                                        <input type="number" class="form-control" name="deductPoint">
+                                      <a class="btn-sm btn btn-danger"><i class="mdi mdi-pot-mix"></i></a>
                                     </td>
                                   </tr>
-                                
+                                <tbody>
+                                  <tr>
+                                    <td>
+                                        Siti Nurul Nur
+                                    </td>
+                                    <td>
+                                        Kejohanan Gymnastik 2011
+                                    </td>
+                                    <td>
+                                      <a class="btn-sm btn btn-warning"><i class="mdi mdi-pencil"></i></a>
+                                    </td>
+                                    <td>
+                                      <a class="btn-sm btn btn-danger"><i class="mdi mdi-pot-mix"></i></a>
+                                    </td>
+                                  </tr>
                                 </tbody>
-                                
                               </table>
-                              <button type="submit" class="btn btn-success mt-2 ">Save Score</button>
-                              </form>
                             </div>
                           </div>
                         </div>
@@ -304,7 +312,7 @@
 
         <footer class="footer">
           <div class="d-sm-flex justify-content-center justify-content-sm-between">
-            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2024.  Gymnas</span>
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright Â© 2024.  Gymnas</span>
           </div>
         </footer> 
         
@@ -339,4 +347,5 @@
 </body>
 
 </html>
+
 

@@ -59,17 +59,7 @@ public void init(){
         double scoreE = Double.parseDouble(request.getParameter("scoreE"));
         double deductPoint = Double.parseDouble(request.getParameter("deductionPoint"));
         
-        Score score = new Score(scoreD,scoreA,scoreE,deductPoint);
-         
-        
-        //insert event
-        String eventName = request.getParameter("eventName");
-        String eventYear = request.getParameter("eventYear");
-        int userID = Integer.parseInt(request.getParameter("userID"));
-        int gymnastID = Integer.parseInt(request.getParameter("gymnastID"));
-        
-        //int eventID, int scoreID, int userID,int gymnastID, String eventName, String eventYear
-        Event event = new Event(0,score.getScoreID(),userID,gymnastID,eventName,eventYear);
+        Score score = new Score(scoreD,scoreA,scoreE,deductPoint);   
          
     }
     

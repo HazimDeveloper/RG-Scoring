@@ -27,11 +27,11 @@ public class gymnastDAO extends QueryDBGymnast{
        DBConnect db = new DBConnect();
     
        public String insertGymnast(){
-           return "INSERT INTO gymnast(gymnastName,gymnastState,profilePicture,category,program) VALUES (?,?,?,?,?)";
+           return "INSERT INTO gymnast(gymnastName,gymnastState,profilePicture) VALUES (?,?,?)";
        }
        
        public String updateGymnast(){
-           return "UPDATE gymnast SET gymnastName = ?, gymnastState = ?,profilePicture=?,category=?,program=? ";
+           return "UPDATE gymnast SET gymnastName = ?, gymnastState = ?,profilePicture=? ";
        }
        
        public String deleteGymnast(){
@@ -52,8 +52,6 @@ public class gymnastDAO extends QueryDBGymnast{
                 pst.setString(1,gym.getGymnastName());
                 pst.setString(2, gym.getGymnastState());
                  pst.setString(3, gym.getProfilePicture());
-                 pst.setString(4,gym.getCategory());
-                 pst.setString(5,gym.getProgram());
             
             pst.executeUpdate();
             }catch(SQLException e){
@@ -70,8 +68,6 @@ public class gymnastDAO extends QueryDBGymnast{
               pst.setString(1, gym.getGymnastName());
               pst.setString(2, gym.getGymnastState());
               pst.setString(3, gym.getProfilePicture());
-              pst.setString(4, gym.getCategory());
-              pst.setString(5,gym.getProgram());
               
               rowUpdated = pst.executeUpdate() > 0;
           }catch(SQLException e){
@@ -109,7 +105,7 @@ public class gymnastDAO extends QueryDBGymnast{
                   String category = rs.getString("category");
                   String program = rs.getString("program");
                   
-                  gyms.add( new Gymnast(id,name,state,profilePicture,category,program));
+                  gyms.add( new Gymnast(id,name,state,profilePicture));
               }
           }catch(SQLException e){
               printSQLException(e);
@@ -130,10 +126,8 @@ public class gymnastDAO extends QueryDBGymnast{
                   String name = rs.getString("gymnastName");
                   String state = rs.getString("gymnastState");
                   String profilePicture =rs.getString("profilePicture");
-                  String category = rs.getString("category");
-                  String program = rs.getString("program");
                   
-                  gyms.add( new Gymnast(id,name,state,profilePicture,category,program));
+                  gyms.add( new Gymnast(id,name,state,profilePicture));
             
               }
           }catch(SQLException e){

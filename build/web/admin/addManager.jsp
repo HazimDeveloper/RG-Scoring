@@ -1,3 +1,10 @@
+<%-- 
+    Document   : addManager
+    Created on : 14 Apr 2024, 2:21:59 pm
+    Author     : USER
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +12,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Judge</title>
+  <title>Add Manager</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="http://127.0.0.1:5500/vendors/feather/feather.css">
   <link rel="stylesheet" href="http://127.0.0.1:5500/vendors/ti-icons/css/themify-icons.css">
@@ -20,45 +27,43 @@
   <link rel="stylesheet" href="http://127.0.0.1:5500/css/vertical-layout-light/style.css">
   <!-- endinject -->
   <link rel="shortcut icon" href="http://127.0.0.1:5500/images/favicon.png" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="http://127.0.0.1:5500/vendors/mdi/css/materialdesignicons.min.css">
 </head>
 <body>
   <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
-      <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo mr-5" href="index.html"><img src="http://127.0.0.1:5500/logo.jpg" class="mr-2" alt="logo"/></a>
-        <a class="navbar-brand brand-logo-mini" href="index.html"><img src="http://127.0.0.1:5500/logo.jpg" alt="logo"/></a>
-      </div>
-      <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
-        <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
-          <span class="icon-menu"></span>
-        </button>
-        <ul class="navbar-nav mr-lg-2">
-        </ul>
-        <ul class="navbar-nav navbar-nav-right">
-          <li class="nav-item nav-profile dropdown">
-            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-                <p>Welcome Judge</p>
-            </a>
-            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-              <a class="dropdown-item">
-                <i class="ti-settings text-primary"></i>
-                Settings
+        <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+          <a class="navbar-brand brand-logo mr-5" href="index.html"><img src="http://127.0.0.1:5500/logo.jpg" class="mr-2" alt="logo"/></a>
+          <a class="navbar-brand brand-logo-mini" href="index.html"><img src="http://127.0.0.1:5500/logo.jpg" alt="logo"/></a>
+        </div>
+        <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+          <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+            <span class="icon-menu"></span>
+          </button>
+          <ul class="navbar-nav mr-lg-2">
+          </ul>
+          <ul class="navbar-nav navbar-nav-right">
+            <li class="nav-item nav-profile dropdown">
+              <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
+                  <p>Welcome Admin</p>
               </a>
-                <a class="dropdown-item" href="logout">
-                <i class="ti-power-off text-primary"></i>
-                Logout
-              </a>
-            </div>
-          </li>
-        </ul>
-        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
-          <span class="icon-menu"></span>
-        </button>
-      </div>
-    </nav>
+              <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+                <a class="dropdown-item">
+                  <i class="ti-settings text-primary"></i>
+                  Settings
+                </a>
+                  <a class="dropdown-item" href="logout">
+                  <i class="ti-power-off text-primary"></i>
+                  Logout
+                </a>
+              </div>
+            </li>
+          </ul>
+          <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+            <span class="icon-menu"></span>
+          </button>
+        </div>
+      </nav>
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
       <div id="right-sidebar" class="settings-panel">
@@ -212,21 +217,28 @@
         </div>
       </div>
       
-    
+      
+      
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#ui-basic3" aria-expanded="false" aria-controls="ui-basic">
-              <i class="fa-solid fa-person-walking"></i></i> &nbsp;
-              <span class="menu-title">Handle Score</span>
-              <!-- <i class="menu-arrow"></i> -->
+            <a class="nav-link" href="dashboard">
+              <i class="icon-grid menu-icon"></i>
+              <span class="menu-title">Dashboard</span>
             </a>
-            <!-- <div class="collapse" id="ui-basic3">
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+              <i class="icon-head menu-icon"></i>
+              <span class="menu-title">Manager</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="viewgymnast.html">View</a></li>
-                <li class="nav-item"> <a class="nav-link" href="addgymnast.html">Add</a></li>
+                <li class="nav-item"> <a class="nav-link" href="viewManager">View</a></li>
+                <li class="nav-item"> <a class="nav-link" href="addManager">Add</a></li>
               </ul>
-            </div> -->
+            </div>
           </li>
         </ul>
       </nav>
@@ -236,67 +248,36 @@
           <div class="row">
             <div class="col-md-12 grid-margin">
                 <div class="row">
-
-                    <div class="col-lg-12 grid-margin stretch-card">
-                        <div class="card">
-                          <div class="card-body">
-                            <h4 class="card-title">Event List</h4>
-                            <div class="table-responsive">
-                                <form class="" >
-                                <select name="" class="form-control">
-                                    <option>Event Name</option>
-                                    <option>MSSM 2024</option>
-                                    <option>MSSM 2012</option>
-                                </select>
-                                <select name="" class="form-control">
-                                    <option>Gymnast Name</option>
-                                    
-                                    <option>Li Zxuan Ying</option>
-                                
-                                    <option>Fatimah Abd Ghani</option>
-                                </select>
-                              <table class="table table-striped">
-                                <thead>
-                                  <tr>
-                                    <th>
-                                      Score D
-                                    </th>
-                                    <th>
-                                      Score E
-                                    </th>
-                                    <th>
-                                      Score A
-                                    </th>
-                                    <th>
-                                      Deduction Point
-                                    </th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <tr>
-                                    <td>
-                                        <input type="number" class="form-control" name="scoreD">
-                                    </td>
-                                    <td>
-                                        <input type="number" class="form-control" name="scoreE">
-                                    </td>
-                                    <td>
-                                        <input type="number" class="form-control" name="scoreA">
-                                    </td>
-                                    <td>
-                                        <input type="number" class="form-control" name="deductPoint">
-                                    </td>
-                                  </tr>
-                                
-                                </tbody>
-                                
-                              </table>
-                              <button type="submit" class="btn btn-success mt-2 ">Save Score</button>
-                              </form>
+                    <div class="col-md-12 grid-margin stretch-card">
+                      <div class="card">
+                        <div class="card-body">
+                          <h4 class="card-title">Add Manager</h4>
+                          <form class="forms-sample">
+                            <div class="form-group">
+                              <label for="exampleInputUsername1">Username</label>
+                              <input type="text" class="form-control" id="exampleInputUsername1" placeholder="Username">
                             </div>
-                          </div>
+                            <div class="form-group">
+                              <label for="exampleInputPassword1">Password</label>
+                              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                            </div>
+                            <div class="form-group">
+                              <label for="exampleInputConfirmPassword1">Confirm Password</label>
+                              <input type="password" class="form-control" id="exampleInputConfirmPassword1" placeholder="Password">
+                            </div>
+                            <div class="form-check form-check-flat form-check-primary">
+                              <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input">
+                                Remember me
+                              </label>
+                            </div>
+                            <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                            <button class="btn btn-light">Cancel</button>
+                          </form>
                         </div>
                       </div>
+                    </div>
+
                 </div>
             </div>
           </div>
@@ -304,7 +285,7 @@
 
         <footer class="footer">
           <div class="d-sm-flex justify-content-center justify-content-sm-between">
-            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2024.  Gymnas</span>
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright Â© 2024.  Gymnas</span>
           </div>
         </footer> 
         
@@ -339,4 +320,5 @@
 </body>
 
 </html>
+
 

@@ -15,6 +15,7 @@ import java.sql.*;
 import java.sql.PreparedStatement;
 
 import jakarta.xml.bind.DatatypeConverter;
+import java.util.List;
 /**
  *
  * @author USER
@@ -30,25 +31,10 @@ public class userDAO extends QueryDBUser {
         return "Select * from user where username = ? and password = ?";
     }
     
-    
-    
-    
-//    public boolean loginPanel(User user){
-//        
-//        boolean status = false;
-//        try(Connection con = db.getConnection();PreparedStatement pst = con.prepareStatement(loginUser())){
-//
-//            pst.setString(1,user.getUsername());
-//            pst.setString(2,user.getPassword());
-//
-//            ResultSet rs = pst.executeQuery();
-//        status = rs.next();
-//        }catch(SQLException e){
-//            printSQLException(e);
-//        }
-//        
-//        return status;
-//        }
+    public String getJudgeData(){
+        return "Select * from user where userType = 'judge'";
+
+    }
     
     public User getUserDetailByUsername(User user){
         try(Connection con = db.getConnection();PreparedStatement pst = con.prepareStatement(loginUser())){

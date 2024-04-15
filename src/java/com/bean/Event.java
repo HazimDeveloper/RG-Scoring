@@ -10,17 +10,8 @@ package com.bean;
  */
 public class Event {
     
-    private int eventID,scoreID,userID,gymnastID;
-    private String eventName,eventYear;
-
-    public Event(int eventID, int scoreID, int userID,int gymnastID, String eventName, String eventYear) {
-        this.eventID = eventID;
-        this.scoreID = scoreID;
-        this.userID = userID;
-        this.gymnastID = gymnastID;
-        this.eventName = eventName;
-        this.eventYear = eventYear;
-    }
+    private int eventID;
+    private String eventName,eventYear,category,program;
     
     
     public Event(int eventID, String eventName, String eventYear) {
@@ -29,31 +20,29 @@ public class Event {
         this.eventYear = eventYear;
     }
 
-    public int getGymnastID() {
-        return gymnastID;
+    public Event(int eventID, String eventName, String eventYear, String category, String program) {
+        this.eventID = eventID;
+        this.eventName = eventName;
+        this.eventYear = eventYear;
+        this.category = category;
+        this.program = program;
     }
 
-    public void setGymnastID(int gymnastID) {
-        this.gymnastID = gymnastID;
+    public String getCategory() {
+        return category;
     }
 
-    public int getScoreID() {
-        return scoreID;
+    public String getProgram() {
+        return program;
     }
 
-    public void setScoreID(int scoreID) {
-        this.scoreID = scoreID;
+    public void setCategory(String category) {
+        this.category = category;
     }
 
-    public int getUserID() {
-        return userID;
+    public void setProgram(String program) {
+        this.program = program;
     }
-
-    public void setUserID(int userID) {
-        this.userID = userID;
-    }
-
-  
 
     public int getEventID() {
         return eventID;

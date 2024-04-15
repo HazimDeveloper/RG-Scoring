@@ -5,6 +5,10 @@
 package com.dao;
 
 import com.bean.Event;
+import com.bean.Gymnast;
+import com.bean.Perfomance;
+import com.bean.Score;
+import com.bean.User;
 import com.connection.DBConnect;
 import com.connection.QueryDBPerfomance;
 import java.sql.Connection;
@@ -25,15 +29,140 @@ public class perfomanceDAO extends QueryDBPerfomance {
     public String listAllEvent(){
         return "select * from  event e join gymnast g on e.gymnastID = g.gymnastID join score s on s.scoreID = e.scoreID join user u on u.userID = e.userID";
     }
-      public String listEventByID() {
-        return "select * from event e join score s on e.scoreID = s.scoreID JOIN gymnast g on e.gymnastID = g.gymnastID join user u on e.userID = u.userID where userID = ?";
+      public String listGymnastByID() {
+        return "select * from perfomance p join event e on p.eventID = e.eventID join score s on p.scoreID = s.scoreID JOIN gymnast g on p.gymnastID = g.gymnastID join user u on p.userID = u.userID where p.gymnastID = ?;";
     }
+      public String specificEventByID(){
+          return "select * from perfomance p join event e on p.eventID = e.eventID join score s on p.scoreID = s.scoreID join gymnast g on p.gymnastID = g.gymnastID join user u on p.userID = u.userID where p.eventID = ?";
     
-     public List < Event > listAllDataEvent(){
+      }
+      
+      public String listDataJudgeWithEventHandled(){
+          return "select * from perfomance p join user u on p.userID = u.userID join event e on p.eventID = e.eventID where u.userID = 'judge' ";
+      }
+      public String listDataManagerWithEventHandled(){
+          return "select * from perfomance p join user u on p.userID = u.userID join event e on p.eventID = e.eventID where u.userID = 'manager' ";
+      }
+      
+      public List <Perfomance> ListJudgeWithEventHandled(){
+          
+      List <Perfomance> perfomance = new ArrayList <>();
       List <Event> event = new ArrayList <>();
+      List <User> user = new ArrayList <>();
+      
+      try(Connection con = db.getConnection();PreparedStatement pst = con.prepareStatement(listDataJudgeWithEventHandled())){
+          ResultSet rs = pst.executeQuery();
+          
+          while(rs.next()){
+                  int eventID = rs.getInt("eventID");
+             
+               String eventName = rs.getString("eventName");
+                       String eventYear = rs.getString("eventYear");
+                String category = rs.getString("category");
+                  String program = rs.getString("program");
+                     String username = rs.getString("username");
+            String userType = rs.getString("userType");
+                  
+           event.add(new Event(eventID,eventName,eventYear,category,program));
+                  user.add(new User (username,userType));
+                  
+                    perfomance.add(new Perfomance(event,user));
+          }
+      }catch(SQLException e){
+          printSQLException(e);
+      }
+      return perfomance;
+      }
+      
+      public List <Perfomance> ListManagerWithEventHandled(){
+          
+      List <Perfomance> perfomance = new ArrayList <>();
+      List <Event> event = new ArrayList <>();
+      List <User> user = new ArrayList <>();
+      
+      try(Connection con = db.getConnection();PreparedStatement pst = con.prepareStatement(listDataManagerWithEventHandled())){
+          ResultSet rs = pst.executeQuery();
+          
+          while(rs.next()){
+                  int eventID = rs.getInt("eventID");
+             
+               String eventName = rs.getString("eventName");
+                       String eventYear = rs.getString("eventYear");
+                String category = rs.getString("category");
+                  String program = rs.getString("program");
+                     String username = rs.getString("username");
+            String userType = rs.getString("userType");
+                  
+           event.add(new Event(eventID,eventName,eventYear,category,program));
+                  user.add(new User (username,userType));
+                  
+                    perfomance.add(new Perfomance(event,user));
+          }
+      }catch(SQLException e){
+          printSQLException(e);
+      }
+      return perfomance;
+      }
+      
+     public List < Perfomance > listAllDataEvent(){
+         
+      List <Perfomance> perfomance = new ArrayList <>();
+      List <Event> event = new ArrayList <>();
+      List <User> user = new ArrayList <>();
+      List <Score> score = new ArrayList <>();
+      List <Gymnast> gymnast = new ArrayList <>();
+      
+      
         try(Connection con = db.getConnection();
                 PreparedStatement pst= con.prepareStatement(listAllEvent())){
            ResultSet rs = pst.executeQuery();
+           while(rs.next()){
+               
+               
+               int eventID = rs.getInt("eventID");
+             
+               String eventName = rs.getString("eventName");
+                       String eventYear = rs.getString("eventYear");
+                               double scoreD = rs.getDouble("scoreD");
+                                       double scoreA = rs.getDouble("scoreA");
+                                               double scoreE = rs.getDouble("scoreE");
+                                                       double technicalDeduction = rs.getDouble("technicalDeduction");
+                                                       
+                                                               int gymnastID = rs.getInt("gymnastID");
+                                                               String gymnastName = rs.getString("gymnastName");
+                                                                       String gymnastState = rs.getString("gymnastState");
+                                                                               String profilePicture = rs.getString("profilePicture");
+                                                                                       String category = rs.getString("category");
+                                                                                               String program = rs.getString("program");
+                                                                                                       String username = rs.getString("username");
+                                                                                                               String userType = rs.getString("userType");
+                                                                                                               
+                  event.add(new Event(eventID,eventName,eventYear,category,program));
+                  user.add(new User (username,userType));
+                  score.add(new Score(scoreD,scoreA,scoreE,technicalDeduction));
+                  gymnast.add(new Gymnast(gymnastID,gymnastName,gymnastState,profilePicture));
+                  
+                  perfomance.add(new Perfomance(event,user,score,gymnast));
+           }
+        }catch(SQLException e){
+            printSQLException(e);
+        }
+        return perfomance;
+    }
+     
+            public List < Perfomance > listAllDataEventByID(int id){
+       
+      List <Perfomance> perfomance = new ArrayList <>();
+      List <Event> event = new ArrayList <>();
+      List <User> user = new ArrayList <>();
+      List <Score> score = new ArrayList <>();
+      List <Gymnast> gymnast = new ArrayList <>();
+      
+      
+        try(Connection con = db.getConnection();
+                PreparedStatement pst= con.prepareStatement(specificEventByID())){
+           pst.setInt(1, id);
+            ResultSet rs = pst.executeQuery();
            while(rs.next()){
                
                
@@ -56,25 +185,36 @@ public class perfomanceDAO extends QueryDBPerfomance {
                                                                                                        String username = rs.getString("username");
                                                                                                                String userType = rs.getString("userType");
                                                                                                                
-                  event.add(new Event(eventID,scoreID,userID,gymnastID,eventName,eventYear));
+                  event.add(new Event(eventID,eventName,eventYear,category,program));
+                  user.add(new User (username,userType));
+                  score.add(new Score(scoreD,scoreA,scoreE,technicalDeduction));
+                  gymnast.add(new Gymnast(gymnastID,gymnastName,gymnastState,profilePicture));
+                  
+                  perfomance.add(new Perfomance(event,user,score,gymnast));
            }
         }catch(SQLException e){
             printSQLException(e);
         }
-        return event;
+        return perfomance;
     }
-     
-            public List < Event > listAllDataEventByID(int id){
+            
+                 public List < Perfomance > listAllDataGymnastByID(int id){
+       
+      List <Perfomance> perfomance = new ArrayList <>();
       List <Event> event = new ArrayList <>();
+      List <User> user = new ArrayList <>();
+      List <Score> score = new ArrayList <>();
+      List <Gymnast> gymnast = new ArrayList <>();
+      
+      
         try(Connection con = db.getConnection();
-                PreparedStatement pst= con.prepareStatement(listEventByID())){
-            pst.setInt(1, id);
-           ResultSet rs = pst.executeQuery();
+                PreparedStatement pst= con.prepareStatement(listGymnastByID())){
+           pst.setInt(1, id);
+            ResultSet rs = pst.executeQuery();
            while(rs.next()){
                
+               
                int eventID = rs.getInt("eventID");
-               int scoreID = rs.getInt("scoreID");
-               int userID = rs.getInt("userID");
                String eventName = rs.getString("eventName");
                        String eventYear = rs.getString("eventYear");
                                double scoreD = rs.getDouble("scoreD");
@@ -90,12 +230,17 @@ public class perfomanceDAO extends QueryDBPerfomance {
                                                                                                        String username = rs.getString("username");
                                                                                                                String userType = rs.getString("userType");
                                                                                                                
-             event.add(new Event(eventID,scoreID,userID,gymnastID,eventName,eventYear));
+                  event.add(new Event(eventID,eventName,eventYear,category,program));
+                  user.add(new User (username,userType));
+                  score.add(new Score(scoreD,scoreA,scoreE,technicalDeduction));
+                  gymnast.add(new Gymnast(gymnastID,gymnastName,gymnastState,profilePicture));
+                  
+                  perfomance.add(new Perfomance(event,user,score,gymnast));
            }
         }catch(SQLException e){
             printSQLException(e);
         }
-        return event;
+        return perfomance;
     }
      
      

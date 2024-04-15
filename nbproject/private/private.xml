@@ -3,16 +3,26 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/USER/Documents/NetBeansProjects/Rhythmic%20Gymnastics%20(RG)/web/navbar/navbar.jsp</file>
-            <file>file:/C:/Users/USER/Documents/NetBeansProjects/Rhythmic%20Gymnastics%20(RG)/web/manager/index.jsp</file>
-            <file>file:/C:/Users/USER/Documents/NetBeansProjects/Rhythmic%20Gymnastics%20(RG)/web/register.jsp</file>
-            <file>file:/C:/Users/USER/Documents/NetBeansProjects/Rhythmic%20Gymnastics%20(RG)/web/index.jsp</file>
-            <file>file:/C:/Users/USER/Documents/NetBeansProjects/Rhythmic%20Gymnastics%20(RG)/web/login.jsp</file>
-            <file>file:/C:/Users/USER/Documents/NetBeansProjects/Rhythmic%20Gymnastics%20(RG)/web/judge/handleScoreGymnast.jsp</file>
-            <file>file:/C:/Users/USER/Documents/NetBeansProjects/Rhythmic%20Gymnastics%20(RG)/web/images/logo.png</file>
-            <file>file:/C:/Users/USER/Documents/NetBeansProjects/Rhythmic%20Gymnastics%20(RG)/src/java/com/servlet/gymnastServlet.java</file>
-            <file>file:/C:/Users/USER/Documents/NetBeansProjects/Rhythmic%20Gymnastics%20(RG)/web/assets/css/dataTables.bootstrap4.css</file>
+            <file>file:/C:/Users/USER/Documents/NetBeansProjects/Rhythmic%20Gymnastics%20(RG)/src/java/com/dao/eventDAO.java</file>
+            <file>file:/C:/Users/USER/Documents/NetBeansProjects/Rhythmic%20Gymnastics%20(RG)/src/java/com/dao/perfomanceDAO.java</file>
+            <file>file:/C:/Users/USER/Documents/NetBeansProjects/Rhythmic%20Gymnastics%20(RG)/web/admin/viewManager.jsp</file>
+            <file>file:/C:/Users/USER/Documents/NetBeansProjects/Rhythmic%20Gymnastics%20(RG)/src/java/com/servlet/eventServlet.java</file>
+            <file>file:/C:/Users/USER/Documents/NetBeansProjects/Rhythmic%20Gymnastics%20(RG)/web/judge/addJudge.jsp</file>
+            <file>file:/C:/Users/USER/Documents/NetBeansProjects/Rhythmic%20Gymnastics%20(RG)/src/java/com/connection/QueryDBPerfomance.java</file>
+            <file>file:/C:/Users/USER/Documents/NetBeansProjects/Rhythmic%20Gymnastics%20(RG)/web/perfomanceGymnast.jsp</file>
+            <file>file:/C:/Users/USER/Documents/NetBeansProjects/Rhythmic%20Gymnastics%20(RG)/src/java/com/servlet/userServlet.java</file>
+            <file>file:/C:/Users/USER/Documents/NetBeansProjects/Rhythmic%20Gymnastics%20(RG)/src/java/com/bean/Perfomance.java</file>
+            <file>file:/C:/Users/USER/Documents/NetBeansProjects/Rhythmic%20Gymnastics%20(RG)/src/java/com/servlet/scoreServlet.java</file>
+            <file>file:/C:/Users/USER/Documents/NetBeansProjects/Rhythmic%20Gymnastics%20(RG)/src/java/com/dao/userDAO.java</file>
+            <file>file:/C:/Users/USER/Documents/NetBeansProjects/Rhythmic%20Gymnastics%20(RG)/src/java/com/servlet/HomeServlet.java</file>
             <file>file:/C:/Users/USER/Documents/NetBeansProjects/Rhythmic%20Gymnastics%20(RG)/web/admin/index.jsp</file>
+            <file>file:/C:/Users/USER/Documents/NetBeansProjects/Rhythmic%20Gymnastics%20(RG)/web/admin/addManager.jsp</file>
+            <file>file:/C:/Users/USER/Documents/NetBeansProjects/Rhythmic%20Gymnastics%20(RG)/web/index.jsp</file>
+            <file>file:/C:/Users/USER/Documents/NetBeansProjects/Rhythmic%20Gymnastics%20(RG)/web/judge/handleScoreGymnast.jsp</file>
+            <file>file:/C:/Users/USER/Documents/NetBeansProjects/Rhythmic%20Gymnastics%20(RG)/src/java/com/servlet/gymnastServlet.java</file>
+            <file>file:/C:/Users/USER/Documents/NetBeansProjects/Rhythmic%20Gymnastics%20(RG)/web/sEvent.jsp</file>
+            <file>file:/C:/Users/USER/Documents/NetBeansProjects/Rhythmic%20Gymnastics%20(RG)/web/judge/viewJudgeDetail.jsp</file>
+            <file>file:/C:/Users/USER/Documents/NetBeansProjects/Rhythmic%20Gymnastics%20(RG)/src/java/com/bean/User.java</file>
         </group>
     </open-files>
 </project-private>

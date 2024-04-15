@@ -26,7 +26,7 @@ import java.util.List;
  *
  * @author USER
  */
-@WebServlet(name = "gymnastServlet", urlPatterns = {"/addGymnast","/updateGymnast","/deleteGymnast","/detailGymnast","/listGymnast"})
+@WebServlet(name = "gymnastServlet", urlPatterns = {"/addGymnast","/viewAddGymnast", "/updateGymnast","/deleteGymnast","/detailGymnast","/listGymnast"})
 @MultipartConfig(
   fileSizeThreshold = 1024 * 1024 * 1, // 1 MB
   maxFileSize = 1024 * 1024 * 10,      // 10 MB
@@ -47,6 +47,10 @@ public class gymnastServlet extends HttpServlet {
             case "/addGymnast":
                 addGymnast(request,response);
         break;
+        case "/viewAddGymnast":
+                routerAddGymnast(request,response);
+        break;
+        
             case "/updateGymnast":
                 updateGymnast(request,response);
                 break;
@@ -70,6 +74,14 @@ public class gymnastServlet extends HttpServlet {
              doGet(request, response);
     }
     
+    
+    private void routerAddGymnast(HttpServletRequest request , HttpServletResponse response)throws ServletException,IOException{
+        
+          RequestDispatcher dispatcher = request.getRequestDispatcher("gymnast/addGymnast.jsp");
+          
+          dispatcher.forward(request,response);
+    }
+    
     private void addGymnast(HttpServletRequest request , HttpServletResponse response) throws ServletException,IOException{
            
     
@@ -78,7 +90,7 @@ public class gymnastServlet extends HttpServlet {
         Part file = request.getPart("image");
         
         String profilePicture = file.getSubmittedFileName();
-          String filePath = "C:/Users/USER/Documents/NetBeansProjects/Rhythmic Gymnastics (RG)//web/images/" + profilePicture;
+          String filePath = "C:/Users/USER/Documents/NetBeansProjects/Rhythmic Gymnastics (RG)/web/images/" + profilePicture;
           
           FileOutputStream fos= new FileOutputStream(filePath);
           InputStream is = file.getInputStream();
@@ -94,7 +106,7 @@ public class gymnastServlet extends HttpServlet {
         String category = request.getParameter("category");
         String program = request.getParameter("program");
         
-        Gymnast gym = new Gymnast(id,name,state,profilePicture,category,program);
+        Gymnast gym = new Gymnast(id,name,state,profilePicture);
         
         gymnastDAO.addGymnast(gym);
         
@@ -115,7 +127,7 @@ public class gymnastServlet extends HttpServlet {
            Part file = request.getPart("image");
         
         String profilePicture = file.getSubmittedFileName();
-          String filePath = "C:/Users/USER/Documents/NetBeansProjects/Rhythmic Gymnastics (RG)//web/images/" + profilePicture;
+          String filePath = "C:/Users/USER/Documents/NetBeansProjects/Rhythmic Gymnastics (RG)/web/images/" + profilePicture;
           
           FileOutputStream fos= new FileOutputStream(filePath);
           InputStream is = file.getInputStream();
@@ -129,10 +141,8 @@ public class gymnastServlet extends HttpServlet {
         String name = request.getParameter("gymnastName");
         String state = request.getParameter("gymnastState");
 //        String profilePicture = request.getParameter("profilePicture");
-        String category = request.getParameter("category");
-        String program = request.getParameter("program");
         
-        Gymnast gym = new Gymnast(id,name,state,profilePicture,category,program);
+        Gymnast gym = new Gymnast(id,name,state,profilePicture);
         
         gymnastDAO.updateGymnast(gym);
         
@@ -179,7 +189,7 @@ if (gymnastDetail.isEmpty() || gymnastDetail.size() <= id) {
          List<Gymnast> gymnastDetail = gymnastDAO.allGymnast();
          
          request.setAttribute("gymnastDetail",gymnastDetail);
-         RequestDispatcher dispatcher = request.getRequestDispatcher("listGymnast.jsp");
+         RequestDispatcher dispatcher = request.getRequestDispatcher("gymnast/viewGymnastDetail.jsp");
          dispatcher.forward(request,response);
          
          System.out.println(gymnastDetail);

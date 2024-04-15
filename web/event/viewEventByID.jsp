@@ -1,3 +1,10 @@
+<%-- 
+    Document   : listEventByID
+    Created on : 13 Apr 2024, 7:46:07 am
+    Author     : USER
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +12,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Judge</title>
+  <title>Add Manager</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="http://127.0.0.1:5500/vendors/feather/feather.css">
   <link rel="stylesheet" href="http://127.0.0.1:5500/vendors/ti-icons/css/themify-icons.css">
@@ -28,8 +35,8 @@
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo mr-5" href="index.html"><img src="http://127.0.0.1:5500/logo.jpg" class="mr-2" alt="logo"/></a>
-        <a class="navbar-brand brand-logo-mini" href="index.html"><img src="http://127.0.0.1:5500/logo.jpg" alt="logo"/></a>
+        <a class="navbar-brand brand-logo mr-5" href="index.html"><img src="images/gym.jpg" class="mr-2" alt="logo"/></a>
+        <a class="navbar-brand brand-logo-mini" href="index.html"><img src="images/gym.jpg" alt="logo"/></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -40,14 +47,14 @@
         <ul class="navbar-nav navbar-nav-right">
           <li class="nav-item nav-profile dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-                <p>Welcome Judge</p>
+                <p>Welcome Manager</p>
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
               <a class="dropdown-item">
                 <i class="ti-settings text-primary"></i>
                 Settings
               </a>
-                <a class="dropdown-item" href="logout">
+              <a class="dropdown-item">
                 <i class="ti-power-off text-primary"></i>
                 Logout
               </a>
@@ -216,17 +223,43 @@
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+              <i class="fa fa-gavel"></i> &nbsp;
+              <span class="menu-title">Event</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="viewJudgePage">View</a></li>
+                <li class="nav-item"> <a class="nav-link" href="addJudgePage">Add</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic2" aria-expanded="false" aria-controls="ui-basic">
+              <i class="fa-solid fa-calendar"></i> &nbsp;
+              <span class="menu-title">Event</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic2">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="viewEvent">View</a></li>
+                <li class="nav-item"> <a class="nav-link" href="viewAddEvent">Add</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic3" aria-expanded="false" aria-controls="ui-basic">
               <i class="fa-solid fa-person-walking"></i></i> &nbsp;
-              <span class="menu-title">Handle Score</span>
-              <!-- <i class="menu-arrow"></i> -->
+              <span class="menu-title">Gymnast</span>
+              <i class="menu-arrow"></i>
             </a>
-            <!-- <div class="collapse" id="ui-basic3">
+            <div class="collapse" id="ui-basic3">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="viewgymnast.html">View</a></li>
-                <li class="nav-item"> <a class="nav-link" href="addgymnast.html">Add</a></li>
+                <li class="nav-item"> <a class="nav-link" href="listGymnast">View</a></li>
+                <li class="nav-item"> <a class="nav-link" href="viewAddGymnast">Add</a></li>
               </ul>
-            </div> -->
+            </div>
           </li>
         </ul>
       </nav>
@@ -242,57 +275,69 @@
                           <div class="card-body">
                             <h4 class="card-title">Event List</h4>
                             <div class="table-responsive">
-                                <form class="" >
-                                <select name="" class="form-control">
-                                    <option>Event Name</option>
-                                    <option>MSSM 2024</option>
-                                    <option>MSSM 2012</option>
-                                </select>
-                                <select name="" class="form-control">
-                                    <option>Gymnast Name</option>
-                                    
-                                    <option>Li Zxuan Ying</option>
-                                
-                                    <option>Fatimah Abd Ghani</option>
-                                </select>
                               <table class="table table-striped">
                                 <thead>
                                   <tr>
                                     <th>
-                                      Score D
+                                      Name
                                     </th>
                                     <th>
-                                      Score E
+                                      Year
                                     </th>
                                     <th>
-                                      Score A
+                                      Program
                                     </th>
                                     <th>
-                                      Deduction Point
+                                      Category
+                                    </th>
+                                    <th colspan="2">
+                                      Action
                                     </th>
                                   </tr>
                                 </thead>
                                 <tbody>
                                   <tr>
                                     <td>
-                                        <input type="number" class="form-control" name="scoreD">
+                                        Kejohanan Majlis Sukan Sekolah Malaysia
                                     </td>
                                     <td>
-                                        <input type="number" class="form-control" name="scoreE">
+                                        2024
                                     </td>
                                     <td>
-                                        <input type="number" class="form-control" name="scoreA">
+                                      U21
                                     </td>
                                     <td>
-                                        <input type="number" class="form-control" name="deductPoint">
+                                      Bola
+                                    </td>
+                                    <td>
+                                      <a class="btn-sm btn btn-warning"><i class="mdi mdi-pencil"></i></a>
+                                    </td>
+                                    <td>
+                                      <a class="btn-sm btn btn-danger"><i class="mdi mdi-pot-mix"></i></a>
                                     </td>
                                   </tr>
-                                
+                                  <tr>
+                                    <td>
+                                        Kejohanan Majlis Sukan Sekolah Malaysia
+                                    </td>
+                                    <td>
+                                        2024
+                                    </td>
+                                    <td>
+                                      U21
+                                    </td>
+                                    <td>
+                                      Bola
+                                    </td>
+                                    <td>
+                                      <a class="btn-sm btn btn-warning"><i class="mdi mdi-pencil"></i></a>
+                                    </td>
+                                    <td>
+                                      <a class="btn-sm btn btn-danger"><i class="mdi mdi-pot-mix"></i></a>
+                                    </td>
+                                  </tr>
                                 </tbody>
-                                
                               </table>
-                              <button type="submit" class="btn btn-success mt-2 ">Save Score</button>
-                              </form>
                             </div>
                           </div>
                         </div>
@@ -304,7 +349,7 @@
 
         <footer class="footer">
           <div class="d-sm-flex justify-content-center justify-content-sm-between">
-            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2024.  Gymnas</span>
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright Â© 2024.  Gymnas</span>
           </div>
         </footer> 
         
@@ -339,4 +384,5 @@
 </body>
 
 </html>
+
 

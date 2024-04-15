@@ -6,7 +6,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Perfomance Gymnast</title>
+  <title>Specific Event</title>
   <!-- plugins:css -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
@@ -41,16 +41,15 @@
 
           <!-- Logout -->
           <li class="nav-item nav-profile dropdown">
-           
-          <a href="routeLogin" class="btn btn-primary" >
-          Login
-        </a>
+            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
+              Hello Gymnastic Lover
+            </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
               <a class="dropdown-item">
                 <i class="ti-settings text-primary"></i>
                 Settings
               </a>
-                <a class="dropdown-item" href="logout">
+              <a class="dropdown-item">
                 <i class="ti-power-off text-primary"></i>
                 Logout
               </a>
@@ -87,38 +86,86 @@
             <div class="col-md-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body ">
-                    <c:forEach items="${perfomanceGymnast.get(0).getGymnast()}" var="gymnast" >
-                        <p class="card-title"><c:out value="${gymnast.gymnastName}"/></p>
-                        
-                        <p class="mt-2 fs-5"> Representing <c:out value="${gymnast.gymnastState}"/></p>
-                        <img src="<c:out value="${gymnast.profilePicture}"/>" width="250px" class="rounded mb-3" alt="alt"/><br>
-                        
-                         </c:forEach>
-                        
-                           <c:forEach items="${perfomanceGymnast.get(0).getScore()}" var="score" >
-                               <table class="table table-striped">
-                            <tr>
-                                <th>Score D</th>
-                             <th>Score E</th>
-                              <th>Score A</th>
-                             <th>Deduct Point</th>
-                              <th>Final Score</th>
-                            </tr>
-                            <tr>
-                                <td> <c:out value="${score.scoreD}"/></td>
-                                <td> <c:out value="${score.scoreE}"/></td>
-                                <td> <c:out value="${score.scoreA}"/></td>
-                                <td> <c:out value="${score.techDeduct}"/></td>
-                                <td> <c:out value="${score.scoreD + score.scoreE + score.scoreA - score.techDeduct }"/></td>
-                                
-                            </tr>
-                        </table>
-                    </c:forEach>
+                
                         
                   <div class="row">
                     <div class="col-12">
                       <div class="table-responsive">
-                        
+                           <c:forEach items="${perfomanceGymnast.get(0).getGymnast()}" var="pfr" >
+                         <table id="" class="table" >
+                          <thead>
+                            <tr>
+                              <th></th>
+                              <th></th>
+                              <th></th>
+
+                              <th></th>
+                              <th  class="text-center border 1px" colspan="4"><img width="40px" height="40px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGqySi-J7uDBTwm_dGFWfoArtyDnt2VK_1zQ&s"></th>
+                            
+                              <th></th>
+                            </tr>
+                            <tr>
+                              <th>Place</th>
+                              <th>Name</th>
+                              <th>State</th>
+                              <th>Year</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>1</td>
+                              <td><a href="perfomanceGymnast?gymnastID=2" ><c:out value="${pfr.gymnastName}"/></a></td>
+                              <td><c:out value="${pfr.gymnastState}"/></td>  
+                         
+                               <c:forEach items="${perfomanceGymnast.get(0).getEvent()}" var="event" >
+                              <td><c:out value="${event.eventYear}"/></td>
+                              </c:forEach>
+                              
+                           
+                            </tr>
+                            
+                    
+                          </tbody>
+                      </table>
+                       </c:forEach>
+                          
+                                      <c:forEach items="${perfomanceGymnast.get(0).getScore()}" var="score" >
+                                          <table class="table-striped table">
+                              <thead>
+                                  <tr>
+                                     <th></th>
+                              <th></th>
+                              <th></th>
+
+                              <th></th>
+                              <th  class="text-center border 1px" colspan="4"><img width="40px" height="40px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGqySi-J7uDBTwm_dGFWfoArtyDnt2VK_1zQ&s"></th>
+                            
+                              <th></th>
+                            </tr>
+                                    <tr>
+                              <th class="border-left 1px">D</th>
+                              <th >E</th>
+                              <th >A</th>
+                              <th class="border-right 1px">Ded.</th>
+                              <th >D + A + E</th>
+                              <th >Final Score.</th>
+                              <th>Qualified P3</th>
+                            </tr>
+                              </thead>
+                              
+                              <tbody>
+                              <td><c:out value="${score.scoreD}"/></td>
+                              <td><c:out value="${score.scoreE}"/></td>
+                              <td><c:out value="${score.scoreA}"/></td>
+                              <td><c:out value="${score.techDeduct}"/></td>
+                            
+                              <td><c:out value="${score.scoreD + score.scoreE + score.scoreA - score.techDeduct }"/></td>
+                              <td><c:out value="${score.scoreD + score.scoreE + score.scoreA - score.techDeduct }"/></td>
+                              <td>Q1</td>
+                                 
+                              </tbody>
+                               </table>
+                              </c:forEach>  
                       </div>
                     </div>
                   </div>
@@ -144,9 +191,6 @@
   </div>
   <!-- container-scroller -->
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js"></script>
-
-  
   <!-- plugins:js -->
   <script src="https://demo.bootstrapdash.com/skydash-free/template/vendors/js/vendor.bundle.base.js"></script>
   <!-- endinject -->

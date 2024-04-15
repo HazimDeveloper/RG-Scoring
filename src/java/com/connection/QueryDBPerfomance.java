@@ -10,7 +10,9 @@ package com.connection;
  */
 public abstract class QueryDBPerfomance {
     public abstract String  listAllEvent();
-      public abstract String listEventByID();
-      
+      public abstract String listGymnastByID();
+      public abstract String listDataManagerWithEventHandled();
+       public abstract String listDataJudgeWithEventHandled();
+      public abstract String specificEventByID();
    
 }

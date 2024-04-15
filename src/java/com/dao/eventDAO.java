@@ -23,15 +23,15 @@ public class eventDAO extends QueryDBEvent{
     }
 
     public String listEventByID() {
-        return "select * from event e eventID = ?";
+        return "select * from event where eventID = ?";
     }
 
     public String insertEvent() {
-        return "insert into event(eventName,eventYear,scoreID,gymnastID,userID) values (?,?,?,?,?)";
+        return "insert into event(eventName,eventYear,program,category) values (?,?,?,?,?)";
     }
 
     public String updateEvent() {
-        return "update event set eventName = ? , eventYear = ? , scoreID = ?,gymnastID = ? , userID = ? where eventID = ?";
+        return "update event set eventName = ? , eventYear = ? , category = ?,program = ? where eventID = ?";
     }
     
     public String deleteEvent(){
@@ -47,14 +47,12 @@ public class eventDAO extends QueryDBEvent{
                
                
                int eventID = rs.getInt("eventID");
-               int scoreID = rs.getInt("scoreID");
-               int userID = rs.getInt("userID");
                String eventName = rs.getString("eventName");
                        String eventYear = rs.getString("eventYear");
-                                                       
-                                                               int gymnastID = rs.getInt("gymnastID");
+                        String category = rs.getString("category");
+                        String program = rs.getString("program");
                                                                                                                
-                  event.add(new Event(eventID,eventName,eventYear));
+                  event.add(new Event(eventID,eventName,eventYear,category,program));
            }
         }catch(SQLException e){
             printSQLException(e);
@@ -72,12 +70,12 @@ public class eventDAO extends QueryDBEvent{
            while(rs.next()){
                
                int eventID = rs.getInt("eventID");
-               int scoreID = rs.getInt("scoreID");
-               int userID = rs.getInt("userID");
                String eventName = rs.getString("eventName");
                        String eventYear = rs.getString("eventYear");
+                        String category = rs.getString("category");
+                        String program = rs.getString("program");
                                                                                                                
-             event.add(new Event(eventID,eventName,eventYear));
+                  event.add(new Event(eventID,eventName,eventYear,category,program));
            }
         }catch(SQLException e){
             printSQLException(e);
@@ -91,7 +89,9 @@ public class eventDAO extends QueryDBEvent{
                 pst.setString(1,event.getEventName());
                 pst.setString(2,event.getEventYear());
                 //score gymnast user
-                pst.setInt(3,event.getEventID());
+                pst.setString(3,event.getCategory());
+                
+                pst.setString(4,event.getProgram());
                 
                 pst.executeUpdate();
             }catch(SQLException e){
@@ -103,8 +103,9 @@ public class eventDAO extends QueryDBEvent{
            try(Connection con = db.getConnection(); PreparedStatement pst = con.prepareStatement(updateEvent())){
               pst.setString(1,event.getEventName());
                 pst.setString(2,event.getEventYear());
-                
-                pst.setInt(3, event.getEventID());
+                 pst.setString(3,event.getCategory());
+                  pst.setString(4,event.getProgram());
+                pst.setInt(5, event.getEventID());
                 pst.executeUpdate();
            }catch(SQLException e){
            printSQLException(e);

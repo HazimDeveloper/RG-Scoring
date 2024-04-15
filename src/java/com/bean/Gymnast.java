@@ -7,15 +7,13 @@ package com.bean;
  */
 public class Gymnast {
    private int gymnastID;
-   private String gymnastName,gymnastState,profilePicture,category,program;
+   private String gymnastName,gymnastState,profilePicture;
 
-    public Gymnast(int gymnastID, String gymnastName, String gymnastState, String profilePicture, String category, String program) {
+    public Gymnast(int gymnastID, String gymnastName, String gymnastState, String profilePicture) {
         this.gymnastID = gymnastID;
         this.gymnastName = gymnastName;
         this.gymnastState = gymnastState;
         this.profilePicture = profilePicture;
-        this.category = category;
-        this.program = program;
     }
 
     public int getGymnastID() {
@@ -50,19 +48,4 @@ public class Gymnast {
         this.profilePicture = profilePicture;
     }
 
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
-    public String getProgram() {
-        return program;
-    }
-
-    public void setProgram(String program) {
-        this.program = program;
-    }
 }

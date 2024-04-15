@@ -21,7 +21,7 @@ import java.util.List;
  *
  * @author USER
  */
-@WebServlet(name = "eventServlet", urlPatterns = {"/addEvent","/updateEvent","/deleteEvent","/listEvent","/listEventByID"})
+@WebServlet(name = "eventServlet", urlPatterns = {"/addEvent","/viewAddEvent","/updateEvent","/deleteEvent","/listEvent","/listEventByID"})
 public class eventServlet extends HttpServlet {
     private eventDAO eventdao;
     public void init(){
@@ -35,6 +35,7 @@ public class eventServlet extends HttpServlet {
         String action = request.getServletPath();
         
         switch(action){
+            
             case "/addEvent" : 
                 addEvent(request,response);
                 break;
@@ -46,6 +47,10 @@ public class eventServlet extends HttpServlet {
                 break;
             case "/listEvent": 
                 listAllEvent(request,response);
+                break;
+            case "/viewAddEvent": 
+                routerAddEvent(request,response);
+            break;
             case "/listEventByID":
                 listAllEventByID(request,response);
                 break;
@@ -60,6 +65,11 @@ public class eventServlet extends HttpServlet {
      private void addEvent(HttpServletRequest request , HttpServletResponse response) throws ServletException,IOException{
      
      
+     }
+     private void routerAddEvent(HttpServletRequest request , HttpServletResponse response) throws ServletException,IOException{
+     
+         RequestDispatcher dispatcher = request.getRequestDispatcher("event/addEvent.jsp");
+         dispatcher.forward(request,response);
      }
      
         private void updateEvent(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException{
@@ -77,7 +87,7 @@ public class eventServlet extends HttpServlet {
                     List<Event> eventDetail = eventdao.listAllDataEvent();
          
          request.setAttribute("eventDetail",eventDetail);
-         RequestDispatcher dispatcher = request.getRequestDispatcher("listEvent.jsp");
+         RequestDispatcher dispatcher = request.getRequestDispatcher("event/eventDetail.jsp");
          dispatcher.forward(request,response);
               }
               
@@ -87,7 +97,6 @@ public class eventServlet extends HttpServlet {
          
          request.setAttribute("eventDetail",eventDetailByID);
          
-        
          RequestDispatcher dispatcher = request.getRequestDispatcher("event/listEventByID.jsp");
          dispatcher.forward(request,response);
                  }
